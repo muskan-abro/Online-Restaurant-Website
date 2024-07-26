@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Welcome to H&M Restaurant</title>
+    <meta charset="utf-8">
+    <meta name="author" content="pixelhint.com">
+    <meta name="description" content="Sublime Stunning free HTML5/CSS3 website template"/>
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/animate.css">
+    <link rel="stylesheet" href="./slick/slick.css">
+    <link rel="stylesheet" href="./slick/slick-theme.css">
+    <link rel="stylesheet" type="text/css" href="./css/hours_locations.css">
+</head>
+<body>
+
+    <section class="billboard light">
+        <header class="wrapper light">
+            <nav>
+                <ul>
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./menu.html">Menu</a></li>
+                    <li><a href="./hours_locations.html">Hours/Locations</a></li>
+                    <li><a href="./online.html">Online Reservation</a></li>
+                    <li><a href="./contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div class="caption light animated wow fadeInDown clearfix">
+            <h1>Explore our various locations and operating hours.</h1>
+            <p>Find a convenient spot to enjoy our delicious dishes.</p>
+            <hr>
+        </div>
+        <div class="shadow"></div>
+    </section>
+    <!-- End billboard -->
+
+    <!-- End services -->
+    <!-- Container to display locations -->
+    <section class="locations">
+        <div class="wrapper">
+            <div class="title animated wow fadeIn">
+                <h1 class="our-locations-title">Our Locations</h1>
+                <p>Find the nearest H&M Restaurant to you:</p>
+                <hr class="separator"/>
+            </div>
+            
+            <div id="locations" class="wrapper"></div>
+        </div>
+    </section>
+
+    <div id="locations" class="wrapper"></div>
+    <footer>
+        <div class="wrapper">
+            <div class="rights">
+                <p>All Rights Reserved 2023 - H&M Restaurant | Developed By H&M</p>
+            </div>
+
+            <nav>
+                <ul>
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./menu.html">Menu</a></li>
+                    <li><a href="./hours_locations.html">Hours/Locations</a></li>
+                    <li><a href="./online.html">Online Reservation</a></li>
+                    <li><a href="./contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+
+    <!-- jQuery script to fetch and display locations -->
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+          $.getJSON('http://localhost:5000/hours_locations', function (data) {
+            console.log(data); // Log data to console for debugging
+            data.forEach(function (hours_location) {
+              $('#locations').append(`
+                <div class="location animated wow fadeIn">
+                  <h3>${hours_location.name}</h3>
+                  <p>${hours_location.address}</p>
+                  <p class="hours_location">${hours_location.operating_hours}</p>
+                </div>
+              `);
+            });
+          });
+      
+          // Initialize WOW.js
+          new WOW().init();
+        });
+      </script>
+
+    <!-- Other scripts -->
+    <script type="text/javascript" src="./js/fancybox.js"></script>
+    <script type="text/javascript" src="./js/wow.js"></script>
+    <script type="text/javascript" src="./js/main.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+</body>
+</html>

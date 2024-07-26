@@ -1,0 +1,24 @@
+{
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.6.5",
+    "concurrently": "^6.3.0"
+  },
+  "name": "restaurant-website",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:all": "concurrently \"npm run start:hours_location\" \"npm run start:reservations\" \"npm run start:menu\" \"npm run start:feedback\"",
+    "start:hours_location": "node ./js/app.js",
+    "start:reservations": "node ./js/server.js",
+    "start:menu": "node ./js/dot.js",
+    "start:feedback": "node ./js/saveFeedback.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

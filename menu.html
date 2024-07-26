@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Welcome to H&M Restaurant</title>
+    <meta charset="utf-8">
+    <meta name="author" content="pixelhint.com">
+    <meta name="description" content="Sublime Stunning free HTML5/CSS3 website template" />
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/animate.css">
+    <link rel="stylesheet" href="./slick/slick.css">
+    <link rel="stylesheet" href="./slick/slick-theme.css">
+    <link rel="stylesheet" type="text/css" href="css/menu.css">
+    <title>Menu</title>
+
+</head>
+
+<body>
+    <section class="billboard light">
+        <header class="wrapper light">
+            <nav>
+                <ul>
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./menu.html">Menu</a></li>
+                    <li><a href="./hours_locations.html">Hours/Locations</a></li>
+                    <li><a href="./online.html">Online Reservation</a></li>
+                    <li><a href="./contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div class="caption light animated wow fadeInDown clearfix">
+            <h1>We love wonderful tastes and food.</h1>
+            <p>Check out our selection of wonderful Asian cuisine</p>
+            <hr>
+        </div>
+        <div class="shadow"></div>
+    </section>
+    <!-- End billboard -->
+
+    <section class="menu-section">
+        <h2 class="menu-heading">Our Menu</h2>
+        <ul class="menu-categories">
+            <li class="menu-category" data-category="starters">Starters</li>
+            <li class="menu-category" data-category="mains">Mains</li>
+            <li class="menu-category" data-category="desserts">Desserts</li>
+            <li class="menu-category" data-category="drinks">Drinks</li>
+        </ul>
+
+        <ul class="menu-list" id="menuList">
+            <!-- Menu items will be dynamically added here using JavaScript -->
+        </ul>
+    </section>
+
+    <footer>
+        <div class="wrapper">
+            <div class="rights">
+                <p>All Rights Reserved 2023 - H&M Restaurant | Developed By H&M</p>
+            </div>
+
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="./menu.html">Menu</a></li>
+                    <li><a href="./hours_locations.html">Hours/Locations</a></li>
+                    <li><a href="./online.html">Online Reservation</a></li>
+                    <li><a href="./contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+    <!-- End footer -->
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async function () {
+            const menuCategories = document.querySelectorAll('.menu-category');
+            const menuList = document.getElementById('menuList');
+            const menuSection = document.querySelector('.menu-section');
+
+            const fetchMenuItems = async (category) => {
+                try {
+                    const response = await fetch(`http://localhost:8090/menu?category=${category}`);
+                    const data = await response.json();
+                    return data;
+                } catch (error) {
+                    console.error('Error fetching menu items:', error);
+                    return [];
+                }
+            };
+
+            async function displayMenu(category) {
+                menuSection.classList.remove('animation-active');
+                menuSection.offsetHeight;
+
+                menuList.innerHTML = '';
+
+                const items = await fetchMenuItems(category);
+
+                items.forEach(item => {
+                    const listItem = document.createElement('li');
+                    listItem.classList.add('menu-item');
+
+                    listItem.innerHTML = `
+                        <h3>${item.name}</h3>
+                        <p>${item.description}</p>
+                        <p class="price">$${formatPrice(item.price)}</p>
+                    `;
+
+                    // Pass the item data to dot.js
+                    listItem.dataset.item = JSON.stringify(item);
+                    menuList.appendChild(listItem);
+                });
+
+                setTimeout(() => {
+                    menuSection.classList.add('animation-active');
+                }, 10);
+            }
+
+            function formatPrice(price) {
+                const numericPrice = parseFloat(price);
+
+                if (!isNaN(numericPrice) && numericPrice !== undefined) {
+                    return numericPrice.toFixed(2);
+                } else {
+                    return 'N/A'; // or handle the case where price is not a valid number
+                }
+            }
+
+            menuCategories.forEach(category => {
+                category.addEventListener('click', () => {
+                    const selectedCategory = category.getAttribute('data-category');
+                    displayMenu(selectedCategory);
+                });
+            });
+
+            displayMenu('starters');
+        });
+    </script>
+</body>
+
+</html>

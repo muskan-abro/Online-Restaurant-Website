@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Welcome to Carl Restaurant</title>
+    <meta charset="utf-8">
+    <meta name="author" content="pixelhint.com">
+    <meta name="description" content="Sublime Stunning free HTML5/CSS3 website template"/>
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/fancybox.css">
+    <link rel="stylesheet" type="text/css" href="css/animate.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/book-table.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script type="text/javascript" src="js/fancybox.js"></script>
+    <script type="text/javascript" src="js/wow.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/turn.min.js"></script>
+
+    <script>
+// Function to handle form submission
+function submitForm() {
+    var formData = $('#reservationForm').serialize();
+
+    $.ajax({
+        type: 'POST',
+        url: 'http://localhost:8081/process_reservation',
+        data: formData,
+        dataType: 'json',
+        success: function (response) {
+            console.log('Reservation response:', response);
+
+            if (response && response.message === 'Reservation saved successfully') {
+                // Display a simple pop-up message
+                alert('Reservation successful! Thank you for booking a table with us.');
+
+                // Clear the form data
+                clearForm();
+
+                // Optionally, you can redirect the user to another page or perform additional actions here
+            } else {
+                console.error('Error submitting reservation:', response && response.message);
+                // Handle errors here, display an error message, etc.
+            }
+        },
+        error: function (error) {
+            console.error('Error submitting reservation:', error.responseText);
+        }
+    });
+}
+
+// Function to clear the form data
+function clearForm() {
+    $('#reservationForm')[0].reset();
+}
+
+        // Wait for the document to be ready
+        $(document).ready(function () {
+            // Attach a submit event listener to the form
+            $('#reservationForm').submit(function (e) {
+                e.preventDefault(); // Prevent the form from submitting traditionally
+                submitForm(); // Call the function to handle form submission
+            });
+        });
+    </script>
+</head>
+<body>
+    <section class="billboard light">
+        <header class="wrapper light">
+            <nav>
+                <ul>
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./menu.html">Menu</a></li>
+                    <li><a href="./hours_locations.html">Hours/Locations</a></li>
+                    <li><a href="./online.html">Online Reservation</a></li>
+                    <li><a href="./contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div class="caption book-table animated wow fadeInDown clearfix">
+            <h1>Book a Table</h1>
+            <p>Reserve your spot at Carl Restaurant and enjoy a delightful dining experience.</p>
+            <hr>
+        </div>
+        <div class="shadow"></div>
+    </section>
+    <!--  End billboard  -->
+
+    <section class="reservation-form wrapper">
+        <div class="form-container animated wow fadeInUp">
+            <!-- Reservation Form -->
+            <h2>Reservation Form</h2>
+            <form id="reservationForm" method="post">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone:</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="date">Date:</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="time">Time:</label>
+                    <input type="time" id="time" name="time" required>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit">Reserve Now</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Modal for displaying the success message -->
+        <div id="reservationModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h2>Reservation Successful!</h2>
+                <p>Thank you for booking a table with us. We look forward to serving you.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="wrapper">
+            <div class="rights">
+                <p>All Rights Reserved 2023 - H&M Restaurant | Developed By H&M</p>
+            </div>
+
+            <nav>
+                <ul>
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./menu.html">Menu</a></li>
+                    <li><a href="./hours_locations.html">Hours/Locations</a></li>
+                    <li><a href="./online.html">Online Reservation</a></li>
+                    <li><a href="./contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>        
+    </footer>
+
+</body>
+</html>
