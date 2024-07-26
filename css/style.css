@@ -1,0 +1,113 @@
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #f4f4f4;
+}
+
+.menu-section {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.menu-section h2 {
+  color: #333;
+  text-align: center;
+}
+
+.menu-item {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  margin: 10px 0;
+  transition: background-color 0.3s ease;
+}
+
+.menu-item:hover {
+  background-color: #e0e0e0;
+}
+
+.menu-item h3 {
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.menu-item p {
+  color: #555;
+  margin: 0;
+}
+
+/* Styles for the button */
+#button-blue {
+  display: inline-block;
+  padding: 15px 20px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+#button-blue:hover {
+  background-color: #007bb5;
+}
+
+/* Styles for the form */
+.form {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* Add this line to prevent margin collapse */
+}
+
+.form p {
+  margin: 0 0 20px 0;
+}
+
+.form input,
+.form textarea {
+  width: calc(100% - 30px);
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-size: 16px;
+  display: inline-block; /* Add this line to prevent alignment issues */
+}
+
+.form textarea {
+  resize: vertical;
+}
+
+.form .submit {
+  text-align: right; /* Align the button to the right */
+}
+
+.ease {
+  height: 25px;
+}
+
+/* Additional styles for better alignment */
+.contact-info {
+  margin-top: 20px;
+}
+
+/* Responsive styles for small screens */
+@media screen and (max-width: 600px) {
+  .form input,
+  .form textarea {
+      width: 100%;
+  }
+}

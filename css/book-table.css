@@ -1,0 +1,399 @@
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+/* General CSS */
+body {
+    background: #000000;
+}
+
+.wrapper {
+    width: 1100px;
+    margin: 0 auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #ffffff;
+    font-family: "raleway-regular", arial;
+    letter-spacing: 1px;
+}
+
+h1 { font-size: 2em; margin: .67em 0 }
+h2 { font-size: 1.5em; margin: .75em 0 }
+h3 { font-size: 1.17em; margin: .83em 0 }
+h5 { font-size: .83em; margin: 1.5em 0 }
+h6 { font-size: .75em; margin: 1.67em 0 }
+h1, h2, h3, h4, h5, h6 { font-weight: bolder }
+
+p {
+    font-family: "raleway-regular";
+    color: #ffffff;
+}
+.clearfix:before,  
+.clearfix:after {  
+    content: " ";  
+    display: table;  
+}  
+.clearfix:after {  
+    clear: both;  
+}  
+ 
+.clearfix {  
+    *zoom: 1;  
+}
+
+
+.logo {
+    width: 10%;
+}
+
+.icon {
+    border-radius: 30px;
+}
+
+
+/*    Billboard    */
+.billboard{
+    width: 100%;
+    height: 690px;
+    position: relative;
+}
+
+.billboard.light{
+    background: url('../img/4251989-01.png') no-repeat;   
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+}
+
+.billboard.dark{
+    /* background: url('../img/billboard2.jpg') no-repeat; */
+    
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+}
+
+
+.billboard .shadow{
+    position: absolute;
+    width: 100%;
+    height: 142px;
+    bottom: 0;
+    left: 0;
+    margin-bottom: -1px;
+    /* background: url('../img/shadow.png') repeat-x; */
+}
+
+.billboard .caption{
+    margin-top: 130px;
+    text-align: center;
+}
+
+.billboard .caption.light{
+    color: #fff;
+}
+
+.billboard .caption.dark{
+    color: #ffffff;
+}
+
+.billboard .caption h1{
+    font-family: "raleway-bold";
+    font-size: 50px;
+    font-weight: bold; 
+    margin-bottom: 30px;
+}
+
+.billboard .caption.light h1{
+    color: #fff;
+}
+
+.billboard .caption.dark h1{
+    color: #ffffff;
+}
+
+.billboard .caption p{
+    font-family: "raleway-regular";
+    font-size: 18px;
+    margin-bottom: 30px;
+    
+}
+
+.billboard .caption.light p{
+    color: #fff;
+}
+
+.billboard .caption.dark p{
+    color: #ffffff;
+}
+
+.billboard .caption hr{
+    display: inline-block;
+    height: 1px;
+    width: 30px;
+    border: 0!important;   
+    margin: 0;
+    padding: 0;
+}
+
+.billboard .caption.light hr{
+    background: #fff;
+}
+
+.billboard .caption.dark hr{
+    background: #ffffff;
+}
+
+
+
+
+/*    header    */
+header{
+    width: 100%;
+    height: 125px;
+}
+
+header .logo{
+    float: left;
+    margin-top: 50px;
+    width:10%;
+}
+
+header nav{
+    float: right;
+    margin-top: 57px;
+}
+
+
+header nav ul li{
+    list-style: none;
+    display: block;
+    float: left;
+    margin-left: 50px;
+}
+
+header nav ul li a{
+    text-decoration: none;  
+    font-family: "raleway-regular";
+    font-size: 14px;
+
+    transition:all .2s linear;
+    -webkit-transition:all .2s linear;
+    -moz-transition:all .2s linear;
+    -o-transition:all .2s linear;
+}
+
+header.light nav ul li a{  
+    color: #ffffff;
+}
+
+header.light nav ul li a:hover{
+    color: #D9886A;
+}
+
+header.dark nav ul li a{  
+    color: #D9886A;
+}
+
+header.dark nav ul li a:hover{
+    color: #D9886A;
+}
+
+
+
+
+/*    Services    */
+.services ul{
+    margin-top: 100px;
+}
+
+.services ul li{
+    list-style: none;
+    display: block;
+    width: 313px;
+    float: left;
+    margin-left: 80px;
+    text-align: center;
+}
+
+.services ul li:first-child{
+    margin-left: 0;
+}
+
+.services ul li .separator{
+    display: block;
+    width: 1px;
+    height: 20px;
+    background: #ffffff;
+    margin: 20px auto;
+}
+
+.services ul li h2{
+    color: #ffffff;
+    font-family: "raleway-bold";
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.services ul li p{
+   color: #ffffff;
+    font-family: "raleway-regular";
+    font-size: 14px;
+    line-height: 28px; 
+    margin-top: 40px;
+    letter-spacing: .5px;
+}
+
+
+
+
+/*    footer    */
+footer{
+    padding: 35px 0;
+    overflow: hidden;
+}
+
+footer .footer_logo{
+    float: left;
+}
+
+footer .rights p{
+    float: left;
+    color: #D9886A;
+    font-family: "raleway-regular";
+    font-size: 13px;
+    margin: 5px 0 0 40px; 
+}
+
+footer .rights p a{
+    color: #D9886A;
+    font-family: "raleway-semibold";
+    font-size: 13px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+footer nav ul{
+    float: right;
+    overflow: hidden;
+    list-style: none;
+    margin-top: 5px; 
+}
+
+footer nav ul li{
+    float: left;
+    margin-left: 25px;
+}
+
+footer nav ul li a{
+    color: #D9886A;
+    font-family: "raleway-regular";
+    font-size: 13px;
+    text-decoration: none;
+
+    transition:all .2s linear;
+    -webkit-transition:all .2s linear;
+    -moz-transition:all .2s linear;
+    -o-transition:all .2s linear;
+}
+
+footer nav ul li a:hover{
+    color: #ffffff;
+}
+
+.services h3 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    display: inline-block;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 8px;
+}
+.locations {
+    padding: 50px 0;
+}
+
+
+
+.reservation-form {
+    background-color: #D9886A;
+    padding: 30px 0;
+}
+
+.form-container {
+    background-color: #000000;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    padding: 20px;
+}
+
+h2 {
+    color: #D9886A;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    /* font-weight: bold; */
+    color: #ffffff; /* Set text color to white for labels */
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    border: 1px solid #D9886A;
+    border-radius: 4px;
+    color: #000000; /* Set text color to white for input fields */
+}
+button {
+    background-color: #D9886A;
+    color: #000000;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #ffffff;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: black;
+}
